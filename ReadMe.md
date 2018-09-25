@@ -135,6 +135,8 @@ Lalu setelah Anda menjalankan perintah diatas, gunakan perintah dibawah ini untu
 $ git push origin -f
 ```
 
+Khusus untuk gitlab, jika commit yang akan dibatalkan berada di cabang master, maka harus ada pengaturan konfigurasi yang diubah pada website gitlab karena secara default, cabang master di proteksi oleh gitlab untuk mencegah penyalahgunaan atau pelanggaran pengembangan secara berkelompok. Pengaturan tersebut terletak pada halaman``settings/repository`` khususnya di ``Protected Branches`` tekan tombol Expand dan tekan tombol ``Unprotect`` pada cabang master yang diproteksi.
+
 Setelah menjalankan perintah diatas, buat ulang perubahan yang Anda inginkan untuk commit dan push kembali ke server git.
 
 ### 6. Menandai
