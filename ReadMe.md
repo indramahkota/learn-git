@@ -60,3 +60,12 @@ no changes added to commit (use "git add" and/or "git commit -a")
 * $ git status akan menampilkan status file-file pada project Anda.
 * $ git add ``<file>...`` untuk menambahkan semua ``<file>...`` yang telah diubah kedalam stage.
 * $ git checkout -- ``<file>...`` untuk membatalkan perubahan semua ``<file>...`` sehingga mengembalikannya seperti semula pada saat commit sebelumnya.
+
+### 3. Melewatkan Perintah add Sebelum Commit
+
+```sh
+$ git commit -a -m 'added new benchmarks'
+```
+
+#### Penjelasan:
+Dengan memberikan opsi ``-a`` ke perintah ``git commit`` akan membuat Git secara otomatis menempatkan setiap berkas yang telah terpantau di area stage sebelum melakukan commit (khusus file yang sebelumnya telah di add dan mengalami perubahan), membuat Anda dapat melewatkan bagian ``git add``.
