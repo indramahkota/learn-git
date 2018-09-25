@@ -32,3 +32,31 @@ $ git clone git@gitlab.com:indramahkota/learngit.git
 * Block lokasi yang ada pada menu bar komputer Anda.
 * Tulis cmd pada lokasi, lalu tekan Enter.
 * Jalankan perintah pada cmd sesuai dengan contoh diatas.
+
+### 3. Cek Status dari Berkas Anda
+
+```sh
+$ git status
+```
+
+#### Hasil:
+
+```sh
+$ git status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   ReadMe.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+#### Penjelasan:
+* $ git status akan menampilkan status file-file pada project Anda.
+* $ git add ``<file>...`` untuk menambahkan semua ``<file>...`` yang telah diubah kedalam stage.
+* $ git checkout -- ``<file>...`` untuk membatalkan perubahan semua ``<file>...`` sehingga mengembalikannya seperti semula pada saat commit sebelumnya.
