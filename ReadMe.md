@@ -136,3 +136,95 @@ $ git push origin -f
 ```
 
 Setelah menjalankan perintah diatas, buat ulang perubahan yang Anda inginkan untuk commit dan push kembali ke server git.
+
+### 6. Menandai
+
+Git memiliki kemampuan untuk menandai titik tertentu dalam (history atau commit-commit yang Anda buat) sebagai sesuatu yang penting. Biasanya, orang menggunakan fungsi ini untuk menandai titik-titik release (rilis) (v1.0, dan seterusnya). Untuk membuat tanda yang diinginkan pada titik commit tertentu gunakan perintah dibawah ini:
+
+```sh
+$ git tag v1.0
+```
+
+Untuk memberikan tanda dan pesan terhadap tanda tersebut, gunakan perintah dibawah ini:
+
+```sh
+$ git tag -a v1.0 -m 'Version 1.0'
+```
+
+Untuk melihat data pada tanda yang telah dibuat dapat menggunakan perintah sebagai berikut:
+
+```sh
+$ git show v1.0
+```
+
+Hasil:
+
+```sh
+$ git show v1.0
+commit a2513c953def4339b4934952352a31472d634b97 (HEAD -> master, tag: v1.0, origin/master)
+Author: Indra Mahkota <indramahkota1@gmail.com>
+Date:   Tue Sep 25 22:59:22 2018 +0700
+
+    Mengubah Commit Terakhir Anda
+
+diff --git a/ReadMe.md b/ReadMe.md
+index 7ea371e..3349833 100644
+--- a/ReadMe.md
++++ b/ReadMe.md
+@@ -88,4 +88,51 @@ Untuk membatalkan semua perubahan pada file tertentu sehingga mengembalikannya s
+
+ ```sh
+ $ git checkout -- <file>
+-```
+\ No newline at end of file
++```
++
++### 5. Mengubah Commit Terakhir Anda
++
++#### Intro Sebagai Peringatan agar Berhati-Hati dalam Menggunakan Perintah Ini.
++Pada setiap tahapan, Anda mungkin ingin membatalkan sesuatu. Di sini, kita akan membahas beberapa alat dasar untuk membatalkan perubahan yang baru saja Anda lakukan. Harus tetap diingat bahwa kita tidak selalu dapat membatalkan apa yang telah kita batalkan. Ini adalah salah satu area dalam Git yang dapat membuat Anda kehilangan apa yang telah Anda kerjakan jika Anda melakukannya dengan tidak tepat.
++
++#### Jika Commit Belum di Push
++
++```sh
++$ git commit --amend //Peringatan!!! Jangan gunakan perintah ini secara langsung.
++```
++
++Ketika selesai melakukan perubahan pada file dan menggunakan perintah ``$ git commit -m 'Pesan Commit'`` untuk commit, secara tidak sengaja Anda lupa mengubah atau menambahkan ``add <file>..`` file. Anda dapat mengubah commit terakhir tersebut dengan cara sebagai berikut:
++
++```sh
++$ git commit -m 'Pesan Commit'
++$ git add forgotten_file
++$ git commit -m 'Pesan Commit' --amend
++```
++
++Peringatan!!! Perintah diatas Harus digunakan secara lengkap karena jika tidak lengkap misal tidak menuliskan ``-m "Pesan Commit"`` perintah ini akan membuka teks editor di cmd/powershell/gitbash yang saya sendiri tidak paham cara menggunakannya, jika Anda bypass atau melewati tahap ini dengan cara menutup cmd/powershell/gitbash maka akan muncul pesan error pada perintah git yang akan Anda tulis berikutnya.
++
++```sh
++Another git process seems to be running in this repository, e.g.
++an editor opened by 'git commit'. Please make sure all processes
++are terminated then try again. If it still fails, a git process
++may have crashed in this repository earlier:
++remove the file manually to continue.
++```
++
++Untuk mengatasi ini, caranya masuk ke direktori .git pada repository dan hapus file index.lock.
++
++#### Jika Commit Sudah di Push
++
++Jika commit sudah terlanjur di push ke server git, sebenarnya jangan terlalu khawatir. Langkah-langkah mengembalikan atau mengubah commit terakhir tersebut dijelaskan sebagai berikut. Ini hanya cara saya, saya menganggap cara ini yang paling baik atau satu-satunya untuk mengatasi masalah ini. Pertama simpan perubahan file terakhir Anda yang sudah di push tadi ke dalam file yang baru katakan saja ``file_baru.txt``, lalu gunakan perintah dibawah ini untuk menghapus commit terakhir Anda yang telah di push.
++
++```sh
++$ git reset HEAD^ --hard
++```
++
++Lalu setelah Anda menjalankan perintah diatas, gunakan perintah dibawah ini untuk membatalkan commit yang telah Anda push di server git.
++
++```sh
++$ git push origin -f
++```
++
++Setelah menjalankan perintah diatas, buat ulang perubahan yang Anda inginkan untuk commit dan push kembali ke server git.
+\ No newline at end of file
+(END)
+```
