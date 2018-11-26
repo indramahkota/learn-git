@@ -237,3 +237,47 @@ index 7ea371e..3349833 100644
 \ No newline at end of file
 (END)
 ```
+
+### 7. Mengecek log dengan decoration
+
+find source in [atlassian webpage](https://www.atlassian.com/git/tutorials/git-log)
+
+```sh
+$ git log -3
+```
+
+```sh
+git log --after="2014-7-1"
+```
+
+```sh
+git log --after="yesterday"
+```
+
+```sh
+git log --after="2014-7-1" --before="2014-7-4"
+```
+
+```sh
+git log --author="John"
+```
+
+```sh
+git log --author="John\|Mary"
+```
+
+```sh
+git log --grep="JRA-224:"
+```
+
+```sh
+$ git log --graph --oneline --decorate
+```
+
+```sh
+$ git log --pretty=format:"%cn committed %h on %cd"
+```
+
+```sh
+$ git log --all --graph --decorate --oneline --simplify-by-decoration
+```
