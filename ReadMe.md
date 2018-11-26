@@ -281,3 +281,8 @@ $ git log --pretty=format:"%cn committed %h on %cd"
 ```sh
 $ git log --all --graph --decorate --oneline --simplify-by-decoration
 ```
+
+### 8. Website penjelasan script shell
+
+find source in [ExplainShell](https://explainshell.com)
+
