@@ -1,5 +1,16 @@
 # Learn Git
 
+### 0. Memulai Git
+* Download Git Bash.
+* Install Git Bash.
+* Masukkan username.
+  ```sh $ git config --global user.name "indramahkota" ```
+* Masukkan email.
+  ```sh $ --global user.email myemail@gmail.com ```
+* Membuat ssh.
+```sh $ ssh-keygen ```
+* Upload ssh.
+
 ### 1. Membuat repository
 
 ```sh
