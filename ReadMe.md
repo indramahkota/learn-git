@@ -15,7 +15,7 @@ git config --global user.name "indramahkota"
 * Masukkan email.
 
 ```sh
---global user.email myemail@gmail.com
+git config --global user.email myemail@gmail.com
 ```
 
 * Membuat ssh.
@@ -85,9 +85,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 #### Penjelasan #3
 
-* $ git status akan menampilkan status file-file pada project Anda.
-* $ git add ``<file>...`` untuk menambahkan semua ``<file>...`` yang telah diubah kedalam stage.
-* $ git checkout -- ``<file>...`` untuk membatalkan perubahan semua ``<file>...`` sehingga mengembalikannya seperti semula pada saat commit sebelumnya.
+* git status akan menampilkan status file-file pada project Anda.
+* git add ``<file>...`` untuk menambahkan semua ``<file>...`` yang telah diubah kedalam stage.
+* git checkout -- ``<file>...`` untuk membatalkan perubahan semua ``<file>...`` sehingga mengembalikannya seperti semula pada saat commit sebelumnya.
 
 ### 4. Melewatkan Perintah add Sebelum Commit
 
@@ -95,25 +95,29 @@ no changes added to commit (use "git add" and/or "git commit -a")
 git commit -a -m 'added new benchmarks'
 ```
 
+```sh
+git commit -am 'added new benchmarks'
+```
+
 #### Penjelasan #4
 
-Dengan memberikan opsi ``-a`` ke perintah ``git commit`` akan membuat Git secara otomatis menempatkan setiap berkas yang telah terpantau di area stage sebelum melakukan commit (khusus file yang sebelumnya telah di add dan mengalami perubahan), membuat Anda dapat melewatkan bagian ``git add``.
+Dengan memberikan opsi ``-a`` ke perintah ``git commit``, akan membuat Git secara otomatis menempatkan setiap berkas yang telah terpantau sebelumnya ke area stage. Hal itu akan mempermudah Anda karena menskip 1 langkah yaitu ``git add``.
 
-### 5. Menghapus Berkas dari Git
+### 5. Menghapus Berkas dari Stage
 
-Untuk menghapus file dari pantauan atau stage gunakan perintah reset HEAD dimana HEAD adalah commit terakhir branch saat ini. Contoh: Anda membuat file ``.gitignore``, lalu Anda gunakan perintah ``$ git add .gitignore``, file ``.gitignore`` akan masuk pada pantauan atau stage, lalu Anda gunakan perintah ``$ git reset HEAD .gitignore`` maka file .gitignore akan keluar dari pantauan atau stage.
+Untuk menghapus file dari pantauan atau stage gunakan perintah reset HEAD dimana HEAD adalah commit terakhir branch saat ini. Contoh: Anda membuat file ``.gitignore``, lalu Anda gunakan perintah ``$ git add .gitignore``, file ``.gitignore`` akan masuk pada pantauan atau stage, lalu Anda gunakan perintah ``$ git reset HEAD .gitignore`` maka file .gitignore akan keluar dari pantauan atau stage. Perubahan yang telah dilakukan tidak akan hilang.
 
 ```sh
 git reset HEAD <file>
 ```
 
-Hampir sama dengan perintah diatas, perintah ``git rm file.js --cache`` akan menghapus file dari pantauan atau stage setelah ditambahkan dengan perintah ``$ git add <file>``. Untuk menghentikan pemantauan file sehingga keluar dari repository tetapi masih tetap berada pada disk atau komputer Anda, masukkan file yang akan Anda hentikan pemantauannya ke dalam file .gitignore.
+Hampir sama dengan perintah diatas, perintah ``git rm file.js --cache`` akan menghapus file dari pantauan atau stage setelah ditambahkan dengan perintah ``$ git add <file>``. Untuk menghentikan pemantauan file sehingga keluar dari repository tetapi masih tetap berada pada disk direktori komputer Anda. Untuk mencegah file dipantau dimasa mendatang, masukkan file yang akan Anda hentikan pemantauannya ke dalam file .gitignore.
 
 ```sh
 git rm file.js --cache
 ```
 
-Untuk membatalkan semua perubahan pada file tertentu sehingga mengembalikannya seperti semula pada saat commit sebelumnya gunakan perintah.
+Untuk membatalkan semua perubahan pada file tertentu sehingga mengembalikannya seperti semula pada saat commit sebelumnya gunakan perintah. //Peringatan!!! Hati-hati menggunakan perintah ini.
 
 ```sh
 git checkout -- <file>
@@ -123,7 +127,7 @@ git checkout -- <file>
 
 #### Intro Sebagai Peringatan agar Berhati-Hati dalam Menggunakan Perintah Ini
 
-Pada setiap tahapan, Anda mungkin ingin membatalkan sesuatu. Di sini, kita akan membahas beberapa alat dasar untuk membatalkan perubahan yang baru saja Anda lakukan. Harus tetap diingat bahwa kita tidak selalu dapat membatalkan apa yang telah kita batalkan. Ini adalah salah satu area dalam Git yang dapat membuat Anda kehilangan apa yang telah Anda kerjakan jika Anda melakukannya dengan tidak tepat.
+Pada setiap tahapan, Anda mungkin ingin membatalkan sesuatu. Di sini, kita akan membahas beberapa perintah dasar untuk membatalkan perubahan yang baru saja dilakukan. Harus tetap diingat bahwa kita tidak selalu dapat membatalkan apa yang telah kita kerjakan. Ini adalah salah satu area dalam Git yang dapat membuat Anda kehilangan apa yang telah Anda kerjakan jika Anda melakukannya dengan tidak tepat.
 
 #### Jika Commit Belum di Push
 
@@ -139,7 +143,7 @@ git add forgotten_file
 git commit -m 'Pesan Commit' --amend
 ```
 
-Peringatan!!! Perintah diatas Harus digunakan secara lengkap karena jika tidak lengkap misal tidak menuliskan ``-m "Pesan Commit"`` perintah ini akan membuka teks editor di cmd/powershell/gitbash yang saya sendiri tidak paham cara menggunakannya, jika Anda bypass atau melewati tahap ini dengan cara menutup cmd/powershell/gitbash maka akan muncul pesan error pada perintah git yang akan Anda tulis berikutnya.
+Peringatan!!! Perintah diatas Harus digunakan secara lengkap karena jika tidak lengkap misal tidak menuliskan ``-m "Pesan Commit"`` perintah ini akan membuka teks editor di cmd/powershell/gitbash, jika Anda bypass atau melewati tahap ini dengan cara menutup cmd/powershell/gitbash maka akan muncul pesan error pada perintah git yang akan Anda tulis berikutnya.
 
 ```sh
 Another git process seems to be running in this repository, e.g.
@@ -153,7 +157,7 @@ Untuk mengatasi ini, caranya masuk ke direktori .git pada repository dan hapus f
 
 #### Jika Commit Sudah di Push
 
-Jika commit sudah terlanjur di push ke server git, sebenarnya jangan terlalu khawatir. Langkah-langkah mengembalikan atau mengubah commit terakhir tersebut dijelaskan sebagai berikut. Ini hanya cara saya, saya menganggap cara ini yang paling baik atau satu-satunya untuk mengatasi masalah ini. Pertama simpan perubahan file terakhir Anda yang sudah di push tadi ke dalam file yang baru katakan saja ``file_baru.txt``, lalu gunakan perintah dibawah ini untuk menghapus commit terakhir Anda yang telah di push.
+Jika commit sudah terlanjur di push ke server git, sebenarnya jangan terlalu khawatir. Langkah-langkah mengembalikan atau mengubah commit terakhir tersebut dijelaskan sebagai berikut. Sebagai catatan, ini hanya cara sederhana saya sebagai pemula, saya menganggap cara ini cukup baik untuk mengatasi masalah ini. Pertama simpan perubahan file terakhir Anda yang sudah di push tadi ke dalam file yang baru katakan saja ``file_baru.txt``/ salin seluruh project/ simpan perubahan pada stash, lalu gunakan perintah dibawah ini untuk menghapus commit terakhir Anda yang telah di push.
 
 ```sh
 git reset HEAD^ --hard
