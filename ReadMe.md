@@ -169,7 +169,7 @@ Lalu setelah Anda menjalankan perintah diatas, gunakan perintah dibawah ini untu
 git push origin -f
 ```
 
-##### Jika Commit Sudah di Push dan Hanya Ingin Mengubah Pesannya Saja
+#### Jika Commit Sudah di Push dan Hanya Ingin Mengubah Pesannya Saja
 
 ```sh
 git commit -m 'Pesan Commit' --amend
@@ -254,6 +254,28 @@ git log --pretty=format:"%cn committed %h on %cd"
 git log --all --graph --decorate --oneline --simplify-by-decoration
 ```
 
-### 9. Website penjelasan script shell
+### 9. Menghapus semua commit history serta menyisakan current state code
+
+```sh
+git checkout --orphan latest_branch
+git add -A
+git commit -am "Initial commit"
+git branch -D master
+git branch -m master
+git push -f origin master
+```
+
+#### Penjelasan #9
+
+| Kode | Penjelasan |
+| ------ | ------ |
+| git checkout --orphan latest_branch | Membuat branch baru di state saat ini dan tidak memasukkan commit history |
+| git add -A | Memasukkan semua perubahan dan file baru kedalam stage |
+| git commit -am "Initial commit" | Membuat pesan commit |
+| git branch -D master | Menghapus branch master |
+| git branch -m master | Mengubah nama branch saat ini menjadi master |
+| git push -f origin master | Mengirim perubahan ke server git secara paksa |
+
+### 10. Website penjelasan script shell
 
 find source in [ExplainShell](https://explainshell.com)
