@@ -52,6 +52,10 @@ git push u origin master
 git clone git@gitlab.com:indramahkota/learngit.git
 ```
 
+```sh
+git clone -b nama-branch git@gitlab.com:indramahkota/learngit.git
+```
+
 #### Penjelasan #2
 
 * Ambil link berupa "ssh/https" pada repository.
@@ -59,6 +63,7 @@ git clone git@gitlab.com:indramahkota/learngit.git
 * Block lokasi yang ada pada menu bar komputer Anda.
 * Tulis cmd pada lokasi, lalu tekan Enter.
 * Jalankan perintah pada cmd sesuai dengan contoh diatas.
+* Jalankan perintah kedua untuk mengclone spesifik branch.
 
 ### 3. Cek Status dari Berkas Anda
 
